@@ -24,6 +24,7 @@ let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
 function resetValue() {
+  ctx.filter = "none";
   img.style.filter = "none";
   saturate.value = "100";
   contrast.value = "100";
@@ -32,6 +33,7 @@ function resetValue() {
   grayscale.value = "0";
   blur.value = "0";
   hueRotate.value = "0";
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 }
 
 window.onload = function () {
@@ -54,7 +56,6 @@ upload.onchange = function () {
     canvas.height = img.height;
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     img.style.display = "none";
-    resetValue();
   };
 };
 let fillters = document.querySelectorAll("ul li input");
